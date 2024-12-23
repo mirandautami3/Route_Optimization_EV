@@ -14,7 +14,7 @@ import matplotlib.colors as mcolors
 def get_location_coordinates(location_name):
     geolocator = Nominatim(user_agent="route_optimizer")
     try:
-        location = geolocator.geocode(location_name)
+        location = geolocator.geocode(location_name, timeout=10)
         if location:
             return (location.latitude, location.longitude)
         else:
